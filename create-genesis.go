@@ -352,6 +352,80 @@ func defaultGenesisConfig(config genesisConfig) *core.Genesis {
 	}
 }
 
+var mainNetConfig = genesisConfig{
+	ChainId: 2023,
+	// who is able to deploy smart contract from genesis block
+	Deployers: []common.Address{
+		common.HexToAddress("0x23325824962A7Adfa5c0d9ce11E7DE62f3E1a726"),
+		common.HexToAddress("0x269504845b1890f48075519c45201f849E015622"),
+		common.HexToAddress("0xe71E0C26736BE54C3fFE54E8d592e20B80D3FE26"),
+		common.HexToAddress("0x42a623eAE8C66f67DDb0453AE4dA4f0Ed2cB9Ea1"),
+		common.HexToAddress("0xce7A5De2f56Bd23080434d9FA2054a21DDEf7886"),
+		common.HexToAddress("0xBF4eCFA5173863fdAf12568f20f3E75ee3C49b42"),
+		common.HexToAddress("0x154a1D44aCB25f4Bfd0a6534c0700C938611aD49"),
+		common.HexToAddress("0xd6ac9014A7b0320fcbb32b9aF051Acadb70cC5CE"),
+		common.HexToAddress("0xb5D375ecf62eeC8563E9EE704de8EEC61217ee52"),
+		common.HexToAddress("0x4Ce77898AD3B3ead83F7c8B17d6158A8572bd7A1"),
+		common.HexToAddress("0x725B8765c9Bf18d9682bf8716e99FEa788e87Cac"),
+	},
+	// list of default validators
+	Validators: []common.Address{
+		common.HexToAddress("0x0343012582A65fFF9cC08c6c61396b3A34996367"),
+		common.HexToAddress("0x6788DaD4B74580c533c3848c9a8ca0fB6Ee1d3fD"),
+		common.HexToAddress("0x656Da1Dc98a1f8AaF8a8Bd7543755D06332ad949"),
+		common.HexToAddress("0xDA9752478Deb908107032fd59609D3997575CfF2"),
+		common.HexToAddress("0x90E093f0CcC0BdF2D9e2F5e89FD771C3a2948A3c"),
+		common.HexToAddress("0xe35259Be3e60e8deEb59EfE8219252cD319FAaf0"),
+		common.HexToAddress("0xDB9e01C3f78551641Be7A462d9B75f3E3807290A"),
+		common.HexToAddress("0x668A61EBF854Df2b751ee38f4923B85CaCd26e60"),
+		common.HexToAddress("0x185b5901d6D52D7e3384D696c7aE0869f4A89C55"),
+		common.HexToAddress("0x041739899B3f5cb194DBEbc3e64a2f7ce8F23F7f"),
+		common.HexToAddress("0x938B3e5B841cEbe51C4BCcB9541b9730197aB342"),
+	},
+	SystemTreasury: map[common.Address]uint16{
+		common.HexToAddress("0xd1F7029Fa869964056C14F3d913ED099B6F58657"): 5000,
+		common.HexToAddress("0x824Ae3BCB720213989a33146EE7E2e0f68763c8A"): 5000,
+	},
+	ConsensusParams: consensusParams{
+		ActiveValidatorsLength:   5,
+		EpochBlockInterval:       28800,
+		MisdemeanorThreshold:     50,
+		FelonyThreshold:          150,
+		ValidatorJailEpochLength: 7,
+		UndelegatePeriod:         6,
+		MinValidatorStakeAmount:  (*math.HexOrDecimal256)(hexutil.MustDecodeBig("0x3635c9adc5dea00000")), // 1000 ether
+		MinStakingAmount:         (*math.HexOrDecimal256)(hexutil.MustDecodeBig("0x1f399b1438a100000")), // 36 ether
+	},
+	InitialStakes: map[common.Address]string{
+		common.HexToAddress("0x0343012582A65fFF9cC08c6c61396b3A34996367"): "0x36c090d0ca68880000", // 1010 eth
+		common.HexToAddress("0x6788DaD4B74580c533c3848c9a8ca0fB6Ee1d3fD"): "0x36c090d0ca68880000",
+		common.HexToAddress("0x656Da1Dc98a1f8AaF8a8Bd7543755D06332ad949"): "0x36c090d0ca68880000",
+		common.HexToAddress("0xDA9752478Deb908107032fd59609D3997575CfF2"): "0x36c090d0ca68880000",
+		common.HexToAddress("0x90E093f0CcC0BdF2D9e2F5e89FD771C3a2948A3c"): "0x36c090d0ca68880000",
+		common.HexToAddress("0xe35259Be3e60e8deEb59EfE8219252cD319FAaf0"): "0x36c090d0ca68880000",
+		common.HexToAddress("0xDB9e01C3f78551641Be7A462d9B75f3E3807290A"): "0x36c090d0ca68880000",
+		common.HexToAddress("0x668A61EBF854Df2b751ee38f4923B85CaCd26e60"): "0x36c090d0ca68880000",
+		common.HexToAddress("0x185b5901d6D52D7e3384D696c7aE0869f4A89C55"): "0x36c090d0ca68880000",
+		common.HexToAddress("0x041739899B3f5cb194DBEbc3e64a2f7ce8F23F7f"): "0x36c090d0ca68880000",
+		common.HexToAddress("0x938B3e5B841cEbe51C4BCcB9541b9730197aB342"): "0x36c090d0ca68880000",
+		common.HexToAddress("0x23325824962A7Adfa5c0d9ce11E7DE62f3E1a726"): "0x52b578968f142066280000",
+		common.HexToAddress("0x269504845b1890f48075519c45201f849E015622"): "0x4a723dc6b40b8a9a000000",
+		common.HexToAddress("0xe71E0C26736BE54C3fFE54E8d592e20B80D3FE26"): "0x4a723dc6b40b8a9a000000",
+		common.HexToAddress("0x42a623eAE8C66f67DDb0453AE4dA4f0Ed2cB9Ea1"): "0x4a723dc6b40b8a9a000000",
+		common.HexToAddress("0xce7A5De2f56Bd23080434d9FA2054a21DDEf7886"): "0x4a723dc6b40b8a9a000000",
+		common.HexToAddress("0xBF4eCFA5173863fdAf12568f20f3E75ee3C49b42"): "0x4a723dc6b40b8a9a000000",
+		common.HexToAddress("0x154a1D44aCB25f4Bfd0a6534c0700C938611aD49"): "0x4a723dc6b40b8a9a000000",
+		common.HexToAddress("0xd6ac9014A7b0320fcbb32b9aF051Acadb70cC5CE"): "0x4a723dc6b40b8a9a000000",
+		common.HexToAddress("0xb5D375ecf62eeC8563E9EE704de8EEC61217ee52"): "0x4a723dc6b40b8a9a000000",
+		common.HexToAddress("0x4Ce77898AD3B3ead83F7c8B17d6158A8572bd7A1"): "0x4a723dc6b40b8a9a000000",
+		common.HexToAddress("0x725B8765c9Bf18d9682bf8716e99FEa788e87Cac"): "0x4a723dc6b40b8a9a000000",
+	},
+	// owner of the governance
+	VotingPeriod: 600, // 1 minute
+	// faucet
+	Faucet: map[common.Address]string{},
+}
+
 var localNetConfig = genesisConfig{
 	ChainId: 1337,
 	// who is able to deploy smart contract from genesis block
@@ -451,6 +525,10 @@ func main() {
 			panic(err)
 		}
 		return
+	}
+	fmt.Printf("building local net\n")
+	if err := createGenesisConfig(mainNetConfig, "genesis.json"); err != nil {
+		panic(err)
 	}
 	fmt.Printf("building local net\n")
 	if err := createGenesisConfig(localNetConfig, "localnet.json"); err != nil {
